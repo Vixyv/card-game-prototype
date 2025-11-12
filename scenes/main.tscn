@@ -2,4 +2,4 @@
 
 [node name="Node3D" type="Node3D"]
 
-[node name="TestNode2" type="Node" parent="."]
+[node name="TestNode" type="Node" parent="."]
