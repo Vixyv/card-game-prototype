@@ -3,11 +3,3 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-
-[node name="TestNode" type="Node" parent="."]
-
-[node name="TestNode2" type="Node" parent="."]
-
-[node name="TestNode3" type="Node" parent="."]
-
-[node name="TestNode4" type="Node" parent="."]
