@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://bqtmpmnrq34ek"]
+[gd_scene load_steps=4 format=4 uid="uid://bqtmpmnrq34ek"]
 
 [ext_resource type="TileSet" uid="uid://dnidij00frbmq" path="res://assets/tile_set.tres" id="1_4xfga"]
 [ext_resource type="PackedScene" uid="uid://nol6w1l55aah" path="res://scenes/player_character.tscn" id="2_paxxb"]
+[ext_resource type="PackedScene" uid="uid://brhl7jshjhji" path="res://scenes/movable_object.tscn" id="3_gldc4"]
 
 [node name="Map" type="Node"]
 
@@ -12,3 +13,10 @@ tile_set = ExtResource("1_4xfga")
 
 [node name="PlayerCharacter" parent="." instance=ExtResource("2_paxxb")]
 position = Vector2(169, 120)
+speed = 100
+
+[node name="RigidBody2D" parent="." instance=ExtResource("3_gldc4")]
+position = Vector2(211, 120)
+
+[node name="RigidBody2D2" parent="." instance=ExtResource("3_gldc4")]
+position = Vector2(223, 122)
