@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bchj1qpag1dx1"]
 
-[ext_resource type="Script" uid="uid://pun12l76gpkv" path="res://scripts/lively_light.gd" id="1_padp0"]
+[ext_resource type="Script" uid="uid://pun12l76gpkv" path="res://player/lively_light.gd" id="1_padp0"]
 
 [sub_resource type="Gradient" id="Gradient_gldc4"]
 interpolation_mode = 2

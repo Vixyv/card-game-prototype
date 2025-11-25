@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://brhl7jshjhji"]
 
-[ext_resource type="Script" uid="uid://cp6kmox2hqcqe" path="res://scripts/movable_object.gd" id="1_8v6cl"]
+[ext_resource type="Script" uid="uid://cp6kmox2hqcqe" path="res://objects/movable_object.gd" id="1_8v6cl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acan8"]
-size = Vector2(8, 8)
+size = Vector2(7.9, 7.9)
 
 [sub_resource type="Gradient" id="Gradient_8v6cl"]
 colors = PackedColorArray(0.116165124, 0.11616514, 0.116165124, 1, 1, 1, 1, 1)
@@ -20,6 +20,7 @@ fill_to = Vector2(1, 0.5)
 polygon = PackedVector2Array(-4, -4, -4, 4, 4, 4, 4, -4)
 
 [node name="MovableObject" type="CharacterBody2D"]
+collision_layer = 3
 script = ExtResource("1_8v6cl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

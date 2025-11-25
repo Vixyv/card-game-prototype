@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://cogs5kwjcami0"]
+
+[ext_resource type="Script" uid="uid://0o6pgdyh1six" path="res://objects/detector.gd" id="1_kiji7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8tf4g"]
+size = Vector2(16, 16)
+
+[sub_resource type="Gradient" id="Gradient_8tf4g"]
+offsets = PackedFloat32Array(0.53156143, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kiji7"]
+gradient = SubResource("Gradient_8tf4g")
+width = 16
+height = 16
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="Detector" type="Area2D" node_paths=PackedStringArray("sprite")]
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_kiji7")
+invalid_color = Color(0.81960785, 0.1882353, 0.1882353, 1)
+valid_color = Color(0.19607843, 0.9019608, 0.19607843, 1)
+sprite = NodePath("Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8tf4g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_kiji7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
