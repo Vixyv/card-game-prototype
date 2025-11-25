@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgfwhia4w8vjj"]
+
+[ext_resource type="Script" uid="uid://do6d2no82jefh" path="res://maps/map_transitions/map_transition.gd" id="1_tj7ur"]
+
+[sub_resource type="Animation" id="Animation_tj7ur"]
+resource_name = "exit_map"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_51yvp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_5lrg8"]
+resource_name = "enter_map"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/FadeRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8g2al"]
+_data = {
+&"RESET": SubResource("Animation_51yvp"),
+&"enter_map": SubResource("Animation_5lrg8"),
+&"exit_map": SubResource("Animation_tj7ur")
+}
+
+[node name="MapTransition" type="Node" node_paths=PackedStringArray("animation_player")]
+process_mode = 3
+script = ExtResource("1_tj7ur")
+animation_player = NodePath("AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8g2al")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="FadeRect" type="ColorRect" parent="CanvasLayer"]
+offset_right = 400.0
+offset_bottom = 240.0
+color = Color(0, 0, 0, 1)
