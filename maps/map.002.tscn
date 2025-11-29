@@ -9,6 +9,7 @@
 
 [node name="Map" type="Node" node_paths=PackedStringArray("detectors")]
 script = ExtResource("1_t0n67")
+map_name = "Map 2"
 detectors = NodePath("Detectors")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
