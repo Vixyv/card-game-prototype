@@ -14,12 +14,6 @@ config/name="Card Game Prototype"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://~other/icon.svg"
 
-[autoload]
-
-Main="*res://maps/main.gd"
-MapTransition="*res://maps/map_transitions/map_transition.tscn"
-HUD="*res://ui/hud.tscn"
-
 [display]
 
 window/size/viewport_width=400

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnnga0clrsb5r"]
+
+[ext_resource type="Script" uid="uid://ckk1llankhcde" path="res://entities/components/scripts/attack_comp.gd" id="1_c65ng"]
+
+[node name="AttackComp" type="Node"]
+script = ExtResource("1_c65ng")

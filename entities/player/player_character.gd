@@ -1,6 +1,6 @@
 class_name PlayerCharacter
 extends CharacterBody2D
-
+"""
 ## Speed in pixels per second.
 @export_range(0, 1000) var speed := 60
 
@@ -9,6 +9,9 @@ var travel_distance := 0.0
 
 
 func _ready() -> void:
+	var health_comp: HealthComp
+	health_comp.damage(10)
+	
 	last_position = position
 	HUD.show_map_travel_distance(travel_distance)
 
@@ -35,3 +38,4 @@ func get_player_input() -> void:
 	var vector := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = vector * speed
 	
+"""

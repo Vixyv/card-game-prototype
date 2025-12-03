@@ -1,0 +1,40 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxj2hia3gu2us"]
+
+[ext_resource type="Script" uid="uid://brnstmatbsuxb" path="res://entities/player/cowboy.gd" id="1_xsbgj"]
+[ext_resource type="PackedScene" uid="uid://bnnga0clrsb5r" path="res://entities/components/attack_comp.tscn" id="2_2kd3n"]
+[ext_resource type="PackedScene" uid="uid://b8uuxsybgco4m" path="res://entities/components/health_comp.tscn" id="3_1p4qn"]
+[ext_resource type="PackedScene" uid="uid://cgsseg22mbmai" path="res://entities/components/hitbox_comp.tscn" id="4_nvb7o"]
+
+[sub_resource type="Gradient" id="Gradient_sglur"]
+colors = PackedColorArray(1, 1, 1, 1, 0.41, 0.19707334, 0.073800005, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bls4j"]
+gradient = SubResource("Gradient_sglur")
+width = 8
+height = 16
+fill = 2
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkugw"]
+size = Vector2(8, 16)
+
+[node name="Cowboy" type="CharacterBody2D"]
+script = ExtResource("1_xsbgj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_bls4j")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_fkugw")
+
+[node name="AttackComp" parent="." instance=ExtResource("2_2kd3n")]
+
+[node name="HealthComp" parent="." instance=ExtResource("3_1p4qn")]
+
+[node name="HitboxComp" parent="." node_paths=PackedStringArray("HEALTH_COMP") instance=ExtResource("4_nvb7o")]
+HEALTH_COMP = NodePath("../HealthComp")
+
+[node name="Hitbox" type="CollisionShape2D" parent="HitboxComp"]
+shape = SubResource("RectangleShape2D_fkugw")
