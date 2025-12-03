@@ -30,8 +30,10 @@ texture = SubResource("GradientTexture2D_bls4j")
 shape = SubResource("RectangleShape2D_fkugw")
 
 [node name="AttackComp" parent="." instance=ExtResource("2_2kd3n")]
+attack_damage = 10
 
 [node name="HealthComp" parent="." instance=ExtResource("3_1p4qn")]
+MAX_HEATH = 100
 
 [node name="HitboxComp" parent="." node_paths=PackedStringArray("HEALTH_COMP") instance=ExtResource("4_nvb7o")]
 HEALTH_COMP = NodePath("../HealthComp")
