@@ -3,14 +3,15 @@ extends Node
 ## Represents a health component for an entity.
 
 
+## Signal emitted when health <= 0.
+signal died
+
 ## Max health of the entity.
 @export var MAX_HEATH: int
 var health: int
 
 ## Calls queue_free() on parent when health <= 0.
 @export var queue_free_on_death := true
-## Signal emitted when health <= 0.
-signal died
 
 
 func _ready() -> void:

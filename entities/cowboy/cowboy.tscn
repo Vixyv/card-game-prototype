@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://cxj2hia3gu2us"]
 
-[ext_resource type="Script" uid="uid://brnstmatbsuxb" path="res://entities/player/cowboy.gd" id="1_xsbgj"]
-[ext_resource type="PackedScene" uid="uid://bnnga0clrsb5r" path="res://entities/components/attack_comp.tscn" id="2_2kd3n"]
+[ext_resource type="Script" uid="uid://brnstmatbsuxb" path="res://entities/cowboy/cowboy.gd" id="1_xsbgj"]
 [ext_resource type="PackedScene" uid="uid://b8uuxsybgco4m" path="res://entities/components/health_comp.tscn" id="3_1p4qn"]
+[ext_resource type="PackedScene" uid="uid://boerute865cpd" path="res://entities/cowboy/revolver.tscn" id="4_ibdun"]
 [ext_resource type="PackedScene" uid="uid://cgsseg22mbmai" path="res://entities/components/hitbox_comp.tscn" id="4_nvb7o"]
 
 [sub_resource type="Gradient" id="Gradient_sglur"]
@@ -27,15 +27,17 @@ texture_filter = 1
 texture = SubResource("GradientTexture2D_bls4j")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_fkugw")
 
-[node name="AttackComp" parent="." instance=ExtResource("2_2kd3n")]
-attack_damage = 10
+[node name="Revolver" parent="." instance=ExtResource("4_ibdun")]
+position = Vector2(2, 0)
 
 [node name="HealthComp" parent="." instance=ExtResource("3_1p4qn")]
 MAX_HEATH = 100
 
 [node name="HitboxComp" parent="." node_paths=PackedStringArray("HEALTH_COMP") instance=ExtResource("4_nvb7o")]
+visible = false
 HEALTH_COMP = NodePath("../HealthComp")
 
 [node name="Hitbox" type="CollisionShape2D" parent="HitboxComp"]
