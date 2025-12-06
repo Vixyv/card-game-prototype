@@ -3,23 +3,18 @@ extends Node2D
 ## The Cowboy's revolver (by default, it is facing right, +x).
 
 
-@export var damage := 10
-@export var magazine_capacity := 6
-## Time between attacks (in seconds).
-@export var attack_interval := 0.5
-## Time to reload magazine (in seconds).
-@export var reload_time := 1.0
+@onready var stats: CowboyStats = (get_parent() as Cowboy).stats
 
 # Time remaining before the revolver can be shot
-var attack_cooldown_time := 0.0 
-var reload_cooldown_time := 0.0
+var attack_cooldown_time: float = 0.0 
+var reload_cooldown_time: float = 0.0
 
 # The amount of bullets currently in the magazine
-var magazine: int
+var magazine: int = 0
 
 
 func _ready() -> void:
-	magazine = magazine_capacity
+	magazine = stats.cur_magazine_capacity
 
 func _process(delta: float) -> void:
 	if attack_cooldown_time > 0:
@@ -35,13 +30,13 @@ func _process(delta: float) -> void:
 func shoot() -> void:
 	if attack_cooldown_time <= 0 and reload_cooldown_time <= 0:
 		spawn_bullet()
-		attack_cooldown_time = attack_interval
+		attack_cooldown_time = stats.cur_attack_interval
 
 # TODO: Implement bullets
 func spawn_bullet() -> void:
 	pass
 	
 func reload() -> void:
-	if magazine <= magazine_capacity:
-		magazine = magazine_capacity
-		reload_cooldown_time = reload_time
+	if magazine <= stats.cur_magazine_capacity:
+		magazine = stats.cur_magazine_capacity
+		reload_cooldown_time = stats.cur_reload_time

@@ -3,19 +3,19 @@ extends CharacterBody2D
 ## Base player script for any player character
 
 
-const PI_DIV_2 = PI/2
+const PI_DIV_2: float = PI/2
 
 ## Speed in pixels per second.
-@export var speed := 60
+@export var stats: EntityStats
 @export var sprite: Sprite2D
 @export var animation_player: AnimationPlayer
 
 ## Degree range for which the sprite faces forward or back (plus and minus)
-@export_range(0, 89) var forw_back_degree_range := 25.0
+@export_range(0, 89) var forw_back_degree_range: float = 25.0
 @onready var forw_back_rad_range := deg_to_rad(forw_back_degree_range)
 
 ## Degree range for which the sprite back left or back right (plus and minus).
-@export_range(0, 89) var back_lr_degree_range := 45.0
+@export_range(0, 89) var back_lr_degree_range: float = 45.0
 @onready var back_lr_rad_range := deg_to_rad(back_lr_degree_range)
 
 
@@ -26,8 +26,8 @@ func _process(_delta: float) -> void:
 # depending on where the mouse is relative to the player
 func _rotate_sprite() -> void:
 	# The facing dir of the player (l/r) changes the sign of `get_angle_to()`
-	var rot_to_mouse = sign(scale.y) * get_angle_to(get_global_mouse_position())
-	var sign_of_rtm = sign(rot_to_mouse) if rot_to_mouse != 0 else 1
+	var rot_to_mouse: float = sign(scale.y) * get_angle_to(get_global_mouse_position())
+	var sign_of_rtm: int = sign(rot_to_mouse) if rot_to_mouse != 0 else 1
 	
 	if ( # When mouse is above or below
 		rot_to_mouse < sign_of_rtm * PI_DIV_2 + forw_back_rad_range and 
@@ -77,4 +77,5 @@ func _handle_player_input() -> void:
 	
 func _move_input() -> void:
 	var vector := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	velocity = vector * speed
+	velocity = vector * stats.cur_speed
+	stats.cur_dne = 0
