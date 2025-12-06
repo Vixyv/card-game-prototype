@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://boerute865cpd"]
 
-[ext_resource type="Script" uid="uid://6niu5htfrml7" path="res://entities/cowboy/revolver.gd" id="1_x2neo"]
+[ext_resource type="Script" uid="uid://6niu5htfrml7" path="res://player/cowboy/revolver.gd" id="1_x2neo"]
 
 [sub_resource type="Gradient" id="Gradient_x2neo"]
 offsets = PackedFloat32Array(0, 0.8)

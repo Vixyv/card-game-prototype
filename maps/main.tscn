@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=4 uid="uid://druxyjpe72edg"]
 
 [ext_resource type="TileSet" uid="uid://dnidij00frbmq" path="res://maps/tilemap/tile_set.tres" id="1_nsuab"]
-[ext_resource type="Script" uid="uid://c2ag3dtpc41y6" path="res://entities/player/player_camera.gd" id="3_nsuab"]
-[ext_resource type="PackedScene" uid="uid://cxj2hia3gu2us" path="res://entities/cowboy/cowboy.tscn" id="3_oduwx"]
+[ext_resource type="Script" uid="uid://c2ag3dtpc41y6" path="res://player/player_camera.gd" id="3_nsuab"]
+[ext_resource type="PackedScene" uid="uid://cxj2hia3gu2us" path="res://player/cowboy/cowboy.tscn" id="3_oduwx"]
 
 [node name="Map" type="Node"]
 
@@ -17,3 +17,4 @@ position = Vector2(200, 152)
 [node name="Camera" type="Camera2D" parent="." node_paths=PackedStringArray("player")]
 script = ExtResource("3_nsuab")
 player = NodePath("../Cowboy")
+mouse_interp_amount = 0.0
