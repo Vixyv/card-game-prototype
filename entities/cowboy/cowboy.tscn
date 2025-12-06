@@ -29,10 +29,10 @@ fill_to = Vector2(0.8, 0.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fkugw"]
 size = Vector2(16, 32)
 
-[node name="Cowboy" type="CharacterBody2D" node_paths=PackedStringArray("facing_dir_sprite", "sprite")]
+[node name="Cowboy" type="CharacterBody2D" node_paths=PackedStringArray("sprite", "facing_dir_sprite")]
 script = ExtResource("1_xsbgj")
-facing_dir_sprite = NodePath("SpriteDirection")
 sprite = NodePath("Sprite")
+facing_dir_sprite = NodePath("SpriteDirection")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 texture_filter = 1
