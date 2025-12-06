@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://6niu5htfrml7" path="res://entities/cowboy/revolver.gd" id="1_x2neo"]
 
 [sub_resource type="Gradient" id="Gradient_x2neo"]
+offsets = PackedFloat32Array(0, 0.8)
 colors = PackedColorArray(1, 1, 1, 1, 0.20799999, 0.27146664, 0.32, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_6k4eg"]
 gradient = SubResource("Gradient_x2neo")
-width = 6
-height = 4
+width = 12
+height = 6
 fill = 1
 fill_from = Vector2(1, 0.5)
 fill_to = Vector2(0, 0.5)
@@ -18,5 +19,5 @@ script = ExtResource("1_x2neo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(2, 0)
 texture = SubResource("GradientTexture2D_6k4eg")
+offset = Vector2(4, 0)

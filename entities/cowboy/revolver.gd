@@ -26,6 +26,10 @@ func _process(delta: float) -> void:
 		attack_cooldown_time -= delta
 	if reload_cooldown_time > 0:
 		reload_cooldown_time -= delta
+	
+	# Rotates to point at mouse
+	look_at(get_global_mouse_position())
+	
 
 
 func shoot() -> void:
